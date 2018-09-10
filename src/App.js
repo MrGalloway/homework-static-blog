@@ -56,7 +56,7 @@ const AppStyles = styled.div`
 
   .content {
     padding: 1rem;
-    max-width: 1000px;
+    max-width: 700px;
     margin: auto;
   }
   //TODO: decide on deleting
@@ -70,9 +70,13 @@ const AppStyles = styled.div`
   
   .front-posts {
     list-style-type: none;
+    padding: 0rem;
     a {
       font-weight: bold;
       font-size: 15pt;
+    }
+    p {
+      text-align: justify;
     }
   }
 
@@ -95,6 +99,14 @@ const AppStyles = styled.div`
     color: #a24936;
     overflow: visible;
     text-align: center;
+    @media (max-width: 700px) {
+      font-size: 10pt;
+      line-height: 10pt;
+    }
+    @media (max-width: 300px) {
+      font-size: 7pt;
+      line-height: 7pt;
+    }
   }
 `
 
