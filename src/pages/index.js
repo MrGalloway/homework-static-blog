@@ -1,12 +1,38 @@
 import React from 'react'
-import { withSiteData } from 'react-static'
+import { withSiteData, withRouteData, Link } from 'react-static'
+//import Post from '../containers/Post';
 //
 import logoImg from '../logo.png'
 
-export default withSiteData(({title}) => (
+const ascii = [
+  "███   █    ██   ▄▄▄▄▄▄   ▄█    ▄▄▄▄▀ ▀▄    ▄",
+  "█  █  █    █ █ ▀   ▄▄▀   ██ ▀▀▀ █      █  █ ",
+  "█ ▀ ▄ █    █▄▄█ ▄▀▀   ▄▀ ██     █       ▀█  ",
+  "█  ▄▀ ███▄ █  █ ▀▀▀▀▀▀   ▐█    █        █   ",
+  "███       ▀   █           ▐   ▀       ▄▀    ",
+  "             █                              ",
+  "            ▀                               "
+].join("\n")
+
+const postsToShow = 5;
+export default withRouteData(withSiteData(({ title, posts }) => (
+
   
+
   <div>
     <h1 style={{ textAlign: 'center' }}>Welcome to {title}</h1>
-    <img src={logoImg} alt="" style={{ display: 'block', margin: '0 auto' }} />
+    <pre className="no-space">
+      {ascii}
+      
+    </pre>
+    <ul className="front-posts">
+      {posts.slice(0,postsToShow).map(post => (
+        <li key={post.id}>
+          <Link to={`/post/${post.id}/`}>{post.title}</Link>
+          <p>{post.body}</p>
+        </li>
+      ))}
+    </ul>
+    <Link className="more-link" to={`/blog`}>see more posts</Link>
   </div>
-))
+)))

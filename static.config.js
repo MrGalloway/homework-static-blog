@@ -6,10 +6,16 @@ export default {
     title: 'React Static',
   }),
   getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const { data: posts } = await axios.get('https://raw.githubusercontent.com/MrGalloway/unatco-handbook/master/document.json')
     return [
       {
         path: '/blog',
+        getData: () => ({
+          posts,
+        }),
+      },
+      {
+        path: '/',
         getData: () => ({
           posts,
         }),

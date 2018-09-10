@@ -7,10 +7,10 @@ export default withRouteData(({ posts }) => (
     <h1>It's blog time.</h1>
     <br />
     All Posts:
-    <ul>
+    <ul className="blog-links">
       {posts.map(post => (
         <li key={post.id}>
-          <Link to={`/blog/post/${post.id}/`}>{post.title}</Link>
+          <Link to={`/post/${post.id}/`}>{post.title}</Link>
         </li>
       ))}
     </ul>
