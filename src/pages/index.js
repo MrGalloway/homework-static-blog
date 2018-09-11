@@ -1,5 +1,5 @@
 import React from 'react'
-import { withSiteData, withRouteData, Link } from 'react-static'
+import { withSiteData, withRouteData, Link, Head } from 'react-static'
 //import Post from '../containers/Post';
 //
 import logoImg from '../logo.png'
@@ -20,10 +20,12 @@ export default withRouteData(withSiteData(({ title, posts }) => (
   
 
   <div>
+    <Head >
+      <title>{title}</title>
+    </Head>
     <h1 style={{ textAlign: 'center' }}>Welcome to {title}</h1>
     <pre className="no-space">
-      {ascii}
-      
+      {ascii}      
     </pre>
     <ul className="front-posts">
       {posts.slice(0,postsToShow).map(post => (
