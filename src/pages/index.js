@@ -20,7 +20,7 @@ export default withRouteData(withSiteData(({ title, posts }) => (
   
 
   <div>
-    <Head >
+    <Head>
       <title>{title}</title>
     </Head>
     <h1 style={{ textAlign: 'center' }}>Welcome to {title}</h1>
